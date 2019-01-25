@@ -11,13 +11,13 @@ class ProjectTest extends TestCase
     use WithFaker, RefreshDatabase;
 
     /** @test */
-    function a_user_can_create_a_project()
+    public function a_user_can_create_a_project()
     {
         $this->withoutExceptionHandling();
-        
+
         $attributes = [
             'title' => $this->faker->sentence,
-            'description' => $this->faker->paragraph
+            'description' => $this->faker->paragraph,
         ];
 
         $this->post('/projects', $attributes)->assertRedirect('/projects');
