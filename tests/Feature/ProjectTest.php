@@ -28,7 +28,7 @@ class ProjectTest extends TestCase
     }
 
     /** @test */
-    function a_project_requires_a_title()
+    public function a_project_requires_a_title()
     {
         // raw will build the attribute with array not object. but not saved like create
         $attribute = factory('App\Project')->raw(['title' => '']);
@@ -37,7 +37,7 @@ class ProjectTest extends TestCase
     }
 
     /** @test */
-    function a_project_requires_a_description()
+    public function a_project_requires_a_description()
     {
         $attribute = factory('App\Project')->raw(['description' => '']);
 
