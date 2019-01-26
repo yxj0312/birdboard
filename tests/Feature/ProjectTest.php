@@ -26,4 +26,21 @@ class ProjectTest extends TestCase
 
         $this->get('/projects')->assertSee($attributes['title']);
     }
+
+    /** @test */
+    function a_project_requires_a_title()
+    {
+        // raw will build the attribute with array not object. but not saved like create
+        $attribute = factory('App\Project')->raw(['title' => '']);
+
+        $this->post('/projects', $attribute)->assertSessionHasErrors('title');
+    }
+
+    /** @test */
+    function a_project_requires_a_description()
+    {
+        $attribute = factory('App\Project')->raw(['description' => '']);
+
+        $this->post('/projects', $attribute)->assertSessionHasErrors('description');
+    }
 }
