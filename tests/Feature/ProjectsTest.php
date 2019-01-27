@@ -45,7 +45,7 @@ class ProjectsTest extends TestCase
     }
 
     /** @test */
-    function a_user_can_view_a_project()
+    public function a_user_can_view_a_project()
     {
         $this->withoutExceptionHandling();
         $project = factory('App\Project')->create();
