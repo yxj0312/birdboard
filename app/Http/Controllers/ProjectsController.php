@@ -28,6 +28,10 @@ class ProjectsController extends Controller
 
     public function show(Project $project)
     {
+        // is() check if two models are the same by looking at the id
+        if (auth()->user()->isNot($project->owner)) {
+            abort(403);
+        }
         return view('projects.show', compact('project'));
     }
 }
