@@ -19,13 +19,13 @@ class ProjectsTest extends TestCase
     }
 
     /** @test */
-    function guests_cannot_view_projects()
+    public function guests_cannot_view_projects()
     {
         $this->get('/projects')->assertRedirect('login');
     }
 
     /** @test */
-    function guests_cannot_view_a_single_projects()
+    public function guests_cannot_view_a_single_projects()
     {
         $project = factory('App\Project')->create();
 
@@ -76,7 +76,7 @@ class ProjectsTest extends TestCase
         $this->withoutExceptionHandling();
 
         $this->be(factory('App\User')->create());
-        
+
         $project = factory('App\Project')->create(['owner_id' => auth()->id()]);
 
         $this->get($project->path())
@@ -85,7 +85,7 @@ class ProjectsTest extends TestCase
     }
 
     /** @test */
-    function an_authenticated_user_cannot_view_the_projects_of_others()
+    public function an_authenticated_user_cannot_view_the_projects_of_others()
     {
         // $this->withoutExceptionHandling();
 

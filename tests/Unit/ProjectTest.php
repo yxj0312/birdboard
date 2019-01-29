@@ -18,7 +18,7 @@ class ProjectTest extends TestCase
     }
 
     /** @test */
-    function it_belongs_to_an_owner()
+    public function it_belongs_to_an_owner()
     {
         $project = factory('App\Project')->create();
 
