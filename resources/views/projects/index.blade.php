@@ -12,7 +12,7 @@
     <ul>
         @forelse ($projects as $project)
             <li>
-                <a href="{{ $project->path() }} }}">{{ $project->title }} }}</a>
+                <a href="{{ $project->path() }} }}">{{ $project->title }} </a>
             </li>
         @empty
             <li>No Projects yet.</li>
