@@ -22,14 +22,14 @@ class ProjectTasksTest extends TestCase
             factory(Project::class)->raw()
         );
 
-        $this->post($project->path() . '/tasks', ['body' => 'Test task']);
+        $this->post($project->path().'/tasks', ['body' => 'Test task']);
 
         $this->get($project->path())
             ->assertSee('Test task');
     }
 
     /** @test */
-    function a_task_requires_a_body()
+    public function a_task_requires_a_body()
     {
         $this->signIn();
 
@@ -39,7 +39,6 @@ class ProjectTasksTest extends TestCase
 
         $attribute = factory('App\Task')->raw(['body' => '']);
 
-        $this->post($project->path() . '/tasks', $attribute)->assertSessionHasErrors('body');
+        $this->post($project->path().'/tasks', $attribute)->assertSessionHasErrors('body');
     }
-
 }
