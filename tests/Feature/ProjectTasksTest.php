@@ -15,17 +15,17 @@ class ProjectTasksTest extends TestCase
     {
         $project = factory('App\Project')->create();
 
-        $this->post($project->path() . '/tasks')->assertRedirect('login');
+        $this->post($project->path().'/tasks')->assertRedirect('login');
     }
 
     /** @test */
-    function only_the_owner_of_a_project_may_add_tasks()
+    public function only_the_owner_of_a_project_may_add_tasks()
     {
         $this->signIn();
-        
+
         $project = factory('App\Project')->create();
 
-        $this->post($project->path() . '/tasks', ['body' => 'Test task'])
+        $this->post($project->path().'/tasks', ['body' => 'Test task'])
             ->assertStatus(403);
 
         $this->assertDatabaseMissing('tasks', ['body' => 'Test task']);
