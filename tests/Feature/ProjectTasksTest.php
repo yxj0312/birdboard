@@ -64,7 +64,7 @@ class ProjectTasksTest extends TestCase
     }
 
     /** @test */
-    function a_task_can_be_updated()
+    public function a_task_can_be_updated()
     {
         $this->withoutExceptionHandling();
         $this->signIn();
@@ -75,14 +75,14 @@ class ProjectTasksTest extends TestCase
 
         $task = $project->addTask('test task');
 
-        $this->patch($task->path() , [
+        $this->patch($task->path(), [
             'body' => 'changed',
-            'completed' => true
+            'completed' => true,
         ]);
 
         $this->assertDatabaseHas('tasks', [
             'body' => 'changed',
-            'completed' => true
+            'completed' => true,
         ]);
     }
 
