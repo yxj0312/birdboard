@@ -34,7 +34,7 @@ class ManageProjectsTest extends TestCase
         $attributes = [
             'title' => $this->faker->sentence,
             'description' => $this->faker->sentence,
-            'notes' => 'General notes here.'
+            'notes' => 'General notes here.',
         ];
 
         $response = $this->post('/projects', $attributes);
