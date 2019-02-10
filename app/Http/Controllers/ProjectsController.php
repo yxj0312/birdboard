@@ -27,12 +27,18 @@ class ProjectsController extends Controller
         return redirect($project->path());
     }
 
+    public function update(Project $project)
+    {
+        $this->authorize('update', $project);
+
+        $project->update(request(['notes']));
+
+        return redirect($project->path());
+    }
+
     public function show(Project $project)
     {
-        // is() check if two models are the same by looking at the id
-        if (auth()->user()->isNot($project->owner)) {
-            abort(403);
-        }
+        $this->authorize('update', $project);
 
         return view('projects.show', compact('project'));
     }
