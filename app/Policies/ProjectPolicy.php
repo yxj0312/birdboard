@@ -3,8 +3,8 @@
 namespace App\Policies;
 
 use App\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
 use App\Project;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ProjectPolicy
 {
