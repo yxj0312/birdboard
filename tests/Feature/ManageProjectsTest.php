@@ -52,7 +52,7 @@ class ManageProjectsTest extends TestCase
     }
 
     /** @test */
-    function a_user_can_update_a_project()
+    public function a_user_can_update_a_project()
     {
         $this->withoutExceptionHandling();
 
@@ -61,12 +61,10 @@ class ManageProjectsTest extends TestCase
         $project = factory('App\Project')->create(['owner_id' => auth()->id()]);
 
         $this->patch($project->path(), [
-            'notes' => 'Changed'
+            'notes' => 'Changed',
         ])->assertRedirect($project->path());
 
-
         $this->assertDatabaseHas('projects', ['notes' => 'Changed']);
-
     }
 
     /** @test */
