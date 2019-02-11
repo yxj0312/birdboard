@@ -4,9 +4,9 @@ namespace Tests\Feature;
 
 use App\Project;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-// use Tests\Setup\ProjectFactory;
 use Facades\Tests\Setup\ProjectFactory;
+// use Tests\Setup\ProjectFactory;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProjectTasksTest extends TestCase
 {
@@ -67,7 +67,7 @@ class ProjectTasksTest extends TestCase
         //     ->ownedBy($this->signIn())
         //     ->withTasks(1)
         //     ->create();
-        
+
         // Add "Facades/" before the import, and u can use the method staticly
         $project = ProjectFactory::withTasks(1)->create();
 
