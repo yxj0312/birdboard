@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Tests\Setup;
 
-use App\Project;
-use App\User;
 use App\Task;
-
+use App\User;
+use App\Project;
 
 class ProjectFactory
 {
@@ -31,11 +29,11 @@ class ProjectFactory
     public function create()
     {
         $project = factory(Project::class)->create([
-            'owner_id' => $this->user ?? factory(User::class)
+            'owner_id' => $this->user ?? factory(User::class),
         ]);
 
         factory(Task::class, $this->tasksCount)->create([
-            'project_id' => $project->id
+            'project_id' => $project->id,
         ]);
 
         return $project;
