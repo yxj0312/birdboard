@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateProjectRequest extends FormRequest
 {
@@ -38,7 +38,6 @@ class UpdateProjectRequest extends FormRequest
         // if u don't include $project in ur update method in controller
         // return Project::findorFail($this->route('project'));
     }
-
 
     public function persist()
     {
