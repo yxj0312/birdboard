@@ -40,6 +40,10 @@ class ProjectsController extends Controller
 
     public function update(Project $project)
     {
+        // if use formrequest
+        // $project->update($request->validated());
+        // or with persist method u wrote in formrequest
+        // $request->persist();
         $this->authorize('update', $project);
 
         $project->update($this->validateRequest());
@@ -55,9 +59,9 @@ class ProjectsController extends Controller
     protected function validateRequest()
     {
         return request()->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'notes' => 'min:3',
+            'title' => 'sometimes|required',
+            'description' => 'sometimes|required',
+            'notes' => 'nullable',
         ]);
     }
 }
