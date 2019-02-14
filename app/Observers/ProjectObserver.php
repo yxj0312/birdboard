@@ -33,7 +33,7 @@ class ProjectObserver
     {
         Activity::create([
             'project_id' => $project->id,
-            'description' => $type
+            'description' => $type,
         ]);
     }
 }
