@@ -40,7 +40,7 @@ class Project extends Model
             'project_id' => $this->id,
             'description' => $type,
         ]);
-    } 
+    }
 
     public function activity()
     {

@@ -31,10 +31,10 @@ class ActivityFeedTest extends TestCase
     }
 
     /** @test */
-    function creating_a_new_task_records_project_activity()
+    public function creating_a_new_task_records_project_activity()
     {
         $project = ProjectFactory::create();
-        
+
         $project->addTask('Some task');
 
         $this->assertCount(2, $project->activity);
@@ -42,16 +42,16 @@ class ActivityFeedTest extends TestCase
     }
 
     /** @test */
-    function completing_a_new_task_records_project_activity()
+    public function completing_a_new_task_records_project_activity()
     {
         $project = ProjectFactory::withTasks(1)->create();
 
         $this->actingAs($project->owner)
             ->patch($project->tasks[0]->path(), [
                 'body' =>  'foobar',
-                'completed' => true
+                'completed' => true,
             ]);
-        
+
         $this->assertCount(3, $project->activity);
         $this->assertEquals('completed_task', $project->activity->last()->description);
     }
