@@ -7,7 +7,7 @@ use App\Project;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class Tasktest extends TestCase
+class TasksTest extends TestCase
 {
     use RefreshDatabase;
 
