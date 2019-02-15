@@ -11,7 +11,7 @@ class Task extends Model
     protected $touches = ['project'];
 
     protected $casts = [
-        'completed' => 'boolean'
+        'completed' => 'boolean',
     ];
 
     protected static function boot()

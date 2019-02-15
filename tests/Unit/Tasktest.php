@@ -7,7 +7,7 @@ use App\Project;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class TaskTest extends TestCase
+class Tasktest extends TestCase
 {
     use RefreshDatabase;
 
@@ -28,7 +28,7 @@ class TaskTest extends TestCase
     }
 
     /** @test */
-    function it_can_be_completed()
+    public function it_can_be_completed()
     {
         $task = factory(Task::class)->create();
 
