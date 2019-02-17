@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
+use App\Task;
 use App\Project;
+use App\Observers\TaskObserver;
 use App\Observers\ProjectObserver;
 use Illuminate\Support\ServiceProvider;
-use App\Task;
-use App\Observers\TaskObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
