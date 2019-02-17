@@ -6,7 +6,7 @@ use Tests\TestCase;
 use Facades\Tests\Setup\ProjectFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class RecordActivityTest extends TestCase
+class TriggerActivityTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -74,8 +74,20 @@ class RecordActivityTest extends TestCase
             'completed' => false,
         ]);
 
+        $project->refresh();
+
         $this->assertCount(4, $project->activity);
 
-        // $this->assertEquals('completed_task', $project->activity->last()->description);
+        $this->assertEquals('incompleted_task', $project->activity->last()->description);
+    }
+
+    /** @test */
+    function deleting_a_task()
+    {
+        $project = ProjectFactory::withTasks(1)->create();
+
+        $project->tasks[0]->delete();
+
+        $this->assertCount(3, $project->activity);        
     }
 }
