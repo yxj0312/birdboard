@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
+use App\Task;
 use Tests\TestCase;
 use Facades\Tests\Setup\ProjectFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Task;
 
 class TriggerActivityTest extends TestCase
 {
