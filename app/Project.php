@@ -39,7 +39,7 @@ class Project extends Model
     {
         $this->activity()->create([
             'description' => $description,
-            'changes' => $this->activityChanges($description)
+            'changes' => $this->activityChanges($description),
         ]);
     }
 
@@ -59,7 +59,7 @@ class Project extends Model
         if ($description == 'updated') {
             return [
                 'before' => array_except(array_diff($this->old, $this->getAttributes()), 'updated_at'),
-                'after' => array_except($this->getChanges(), 'updated_at')
+                'after' => array_except($this->getChanges(), 'updated_at'),
             ];
         }
     }
