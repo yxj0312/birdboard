@@ -51,12 +51,11 @@ class Project extends Model
     /**
      * Fetch the changes to the model.
      *
-     * @param  string $description
      * @return array|null
      */
-    protected function activityChanges($description)
+    protected function activityChanges()
     {
-        if ($description == 'updated') {
+        if ($this->wasChanged()) {
             return [
                 'before' => array_except(array_diff($this->old, $this->getAttributes()), 'updated_at'),
                 'after' => array_except($this->getChanges(), 'updated_at'),
