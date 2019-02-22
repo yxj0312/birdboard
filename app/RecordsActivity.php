@@ -2,13 +2,10 @@
 
 namespace App;
 
-/**
- * 
- */
 trait RecordsActivity
 {
     public $oldAttributes = [];
-    
+
     public static function bootRecordsActivity()
     {
         static::updating(function ($model) {
@@ -26,7 +23,7 @@ trait RecordsActivity
         $this->activity()->create([
             'description' => $description,
             'changes' => $this->activityChanges(),
-            'project_id' => class_basename($this) === 'Project' ? $this->id : $this->project_id
+            'project_id' => class_basename($this) === 'Project' ? $this->id : $this->project_id,
         ]);
     }
 
