@@ -31,8 +31,6 @@ class TriggerActivityTest extends TestCase
         $project = ProjectFactory::create();
         $originalTitle = $project->title;
 
-        
-
         $project->update(['title' => 'Changed']);
 
         $this->assertCount(2, $project->activity);
