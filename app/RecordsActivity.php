@@ -9,7 +9,7 @@ trait RecordsActivity
     public static function bootRecordsActivity()
     {
         foreach (self::recordableEvents() as $event) {
-            static::$event(function ($model) use ($event){
+            static::$event(function ($model) use ($event) {
                 $model->recordActivity($model->activityDescription($event));
             });
 
@@ -21,9 +21,9 @@ trait RecordsActivity
         }
     }
 
-    protected function activityDescription ($description)
+    protected function activityDescription($description)
     {
-        return "{$description}_" . strtolower(class_basename($this));
+        return "{$description}_".strtolower(class_basename($this));
     }
 
     /**
@@ -59,13 +59,13 @@ trait RecordsActivity
             ];
         }
     }
-    
+
     protected static function recordableEvents()
     {
         if (isset(static::$recordableEvents)) {
             return static::$recordableEvents;
         }
-        
-        return ['created', 'updated', 'deleted'];  
+
+        return ['created', 'updated', 'deleted'];
     }
 }
