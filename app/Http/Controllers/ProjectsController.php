@@ -56,6 +56,7 @@ class ProjectsController extends Controller
         $this->authorize('update', $project);
 
         $project->delete();
+
         return redirect('/projects');
     }
 
