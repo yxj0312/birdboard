@@ -50,13 +50,12 @@ class ManageProjectsTest extends TestCase
     }
 
     /** @test */
-    function unauthorized_cannot_delete_projects()
+    public function unauthorized_cannot_delete_projects()
     {
         $project = ProjectFactory::create();
 
         $this->delete($project->path())
             ->assertRedirect('/login');
-
 
         $this->signIn();
 
@@ -65,7 +64,7 @@ class ManageProjectsTest extends TestCase
     }
 
     /** @test */
-    function a_user_can_delete_a_project()
+    public function a_user_can_delete_a_project()
     {
         $project = ProjectFactory::create();
 
