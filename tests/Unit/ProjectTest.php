@@ -38,7 +38,7 @@ class ProjectTest extends TestCase
     }
 
     /** @test */
-    function it_can_invite_a_user()
+    public function it_can_invite_a_user()
     {
         $project = factory('App\Project')->create();
 
