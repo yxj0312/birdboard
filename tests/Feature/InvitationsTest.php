@@ -18,9 +18,12 @@ class InvitationsTest extends TestCase
         $project = ProjectFactory::create();
 
         // And the owner of the project invites another user
-        $project->invite($anotherUser = factory(\App\User::class)->create());
+        $project->invite($newUser = factory(\App\User::class)->create());
 
         // Then, that new user will have permission to add tasks
-        
+        $this->signIn($newUser);
+        $this->post(action('ProjectTasksController@store', $project), $task = ['body' => 'Foo task']);
+
+        $this->assertDatabaseHas('tasks', $task);
     }
 }

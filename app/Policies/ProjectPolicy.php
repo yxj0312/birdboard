@@ -13,6 +13,6 @@ class ProjectPolicy
     public function update(User $user, Project $project)
     {
         // is() check if two models are the same by looking at the id
-        return $user->is($project->owner);
+        return $user->is($project->owner) || $project->members->contains($user);
     }
 }
