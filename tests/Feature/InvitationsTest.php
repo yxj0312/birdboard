@@ -3,8 +3,7 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use Facades\Tests\Setup\ProjectFactory; 
-use Illuminate\Foundation\Testing\WithFaker;
+use Facades\Tests\Setup\ProjectFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class InvitationsTest extends TestCase
@@ -12,7 +11,7 @@ class InvitationsTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    function a_project_can_invite_a_user()
+    public function a_project_can_invite_a_user()
     {
         // Give I have a project
         $project = ProjectFactory::create();
