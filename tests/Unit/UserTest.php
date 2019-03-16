@@ -2,11 +2,11 @@
 
 namespace Tests\Unit;
 
+use App\User;
 use Tests\TestCase;
+use Facades\Tests\Setup\ProjectFactory;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Facades\Tests\Setup\ProjectFactory;
-use App\User;
 
 class UserTest extends TestCase
 {
@@ -21,7 +21,7 @@ class UserTest extends TestCase
     }
 
     /** @test */
-    function a_user_has_accessible_projects()
+    public function a_user_has_accessible_projects()
     {
         $john = $this->signIn();
 

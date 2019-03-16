@@ -59,7 +59,7 @@ class ManageProjectsTest extends TestCase
         // $project = ProjectFactory::create();
 
         // $project->invite($user);
-        
+
         // tap will return what u type in the (). here it will return a project
         $project = tap(ProjectFactory::create())->invite($this->signIn());
 
