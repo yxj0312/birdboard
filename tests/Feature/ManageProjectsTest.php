@@ -53,17 +53,19 @@ class ManageProjectsTest extends TestCase
     public function a_user_can_see_all_projects_they_have_been_invited_to_on_their_dashboard()
     {
         // given we're signed in
-        $user = $this->signIn();
+        // $user = $this->signIn();
 
         // and we've been invited to a project that was not by created by us
-        $project = ProjectFactory::create();
+        // $project = ProjectFactory::create();
 
-        $project->invite($user);
+        // $project->invite($user);
+        
+        // tap will return what u type in the (). here it will return a project
+        $project = tap(ProjectFactory::create())->invite($this->signIn());
 
         // when I visit my dashboard
         // I should see that project
-        $this->get('/projects')
-            ->assertSee($project->title);
+        $this->get('/projects')->assertSee($project->title);
     }
 
     /** @test */
