@@ -4,10 +4,25 @@
     <header class="flex items-center mb-3 pb-4">
         <div class="flex justify-between items-end w-full">
             <p class="text-grey text-sm font-normal">
-                <a href="/projects" class="text-grey text-sm font-normal no-underline">My Projects</a> / {{ $project->title }}
+                <a href="/projects" class="text-grey text-sm font-normal no-underline">My Projects</a>
+                / {{ $project->title }}
             </p>
 
-            <a href="{{ $project->path().'/edit' }}" class="button">Update Project</a>
+            <div class="flex items-center">
+                @foreach ($project->members as $member)
+                    <img 
+                        src="{{ gravatar_url($member->email) }}" 
+                        alt="{{ $member->name }}'s avatar" 
+                        class="rounded-full w-8 mr-2">
+                @endforeach
+
+                <img 
+                    src="{{ gravatar_url($project->owner->email) }}" 
+                    alt="{{ $project->owner->name }}'s avatar" 
+                    class="rounded-full w-8 mr-2">
+
+                <a href="{{ $project->path().'/edit' }}" class="button ml-4">Update Project</a>
+            </div>
         </div>
     </header>
 
