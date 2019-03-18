@@ -2,27 +2,27 @@
 
 namespace Tests\Feature;
 
+use App\User;
 use Tests\TestCase;
 use Facades\Tests\Setup\ProjectFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\User;
 
 class InvitationsTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    function a_project_can_invite_a_user()
+    public function a_project_can_invite_a_user()
     {
         $project = ProjectFactory::create();
 
         $userToInvite = factory(User::class)->create();
 
         $this->actingAs($project->owner)->post($project->path().'/invitations', [
-            'email' => $userToInvite->email
-        ]); 
+            'email' => $userToInvite->email,
+        ]);
 
-        $this->assertTrue($project->members->contain($userToInvite));   
+        $this->assertTrue($project->members->contain($userToInvite));
     }
 
     /** @test */
