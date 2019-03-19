@@ -14,6 +14,7 @@ class InvitationsTest extends TestCase
     /** @test */
     public function a_project_can_invite_a_user()
     {
+        $this->withoutExceptionHandling();
         $project = ProjectFactory::create();
 
         $userToInvite = factory(User::class)->create();
@@ -22,7 +23,7 @@ class InvitationsTest extends TestCase
             'email' => $userToInvite->email,
         ]);
 
-        $this->assertTrue($project->members->contain($userToInvite));
+        $this->assertTrue($project->members->contains($userToInvite));
     }
 
     /** @test */
