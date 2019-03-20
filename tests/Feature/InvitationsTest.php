@@ -26,7 +26,7 @@ class InvitationsTest extends TestCase
     }
 
     /** @test */
-    function the_invited_email_address_must_be_associated_with_a_valid_birdboard_account()
+    public function the_invited_email_address_must_be_associated_with_a_valid_birdboard_account()
     {
         $project = ProjectFactory::create();
 
