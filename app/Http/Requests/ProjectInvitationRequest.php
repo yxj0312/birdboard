@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Http\FormRequest;
+
 // use App\User;
 
 class ProjectInvitationRequest extends FormRequest
@@ -34,11 +35,11 @@ class ProjectInvitationRequest extends FormRequest
         return [
             // 'email' => ['required', 'exists:users,email']
 
-            'email' => ['required', Rule::exists('users', 'email')]
+            'email' => ['required', Rule::exists('users', 'email')],
 
             // 'email' => ['required', function($attribute, $value, $fail) {
             //     if (! User::whereEmail($value)->exists()) {
-            //         $fail('The user you are inviting must have a Birdboard account.');    
+            //         $fail('The user you are inviting must have a Birdboard account.');
             //     }
             // }
             // ]
@@ -53,7 +54,7 @@ class ProjectInvitationRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.exists' => 'The user you are inviting must have a Birdboard account.'
+            'email.exists' => 'The user you are inviting must have a Birdboard account.',
         ];
     }
 }
