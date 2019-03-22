@@ -10,6 +10,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ProjectInvitationRequest extends FormRequest
 {
+    protected $errorBag = 'invitations';
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -22,7 +24,7 @@ class ProjectInvitationRequest extends FormRequest
         // We are using route model binding, which means: when I call $this->route('project')
         // it gonna give me the project, cause /project/{project}/invitation, {project} is a wildcard
         // when we try to result that, it gonna give me a underline project
-        return Gate::allows('update', $this->route('project'));
+        return Gate::allows('manage', $this->route('project'));
     }
 
     /**
