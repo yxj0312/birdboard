@@ -17,7 +17,7 @@ class InvitationsTest extends TestCase
         $project = ProjectFactory::create();
         $user = factory(User::class)->create();
 
-        $assertInvitationForbidden =  function () use ($user, $project){
+        $assertInvitationForbidden = function () use ($user, $project) {
             $this->actingAs($user)
                 ->post($project->path().'/invitations')
                 ->assertStatus(403);
