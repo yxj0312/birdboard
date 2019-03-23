@@ -31,7 +31,7 @@ class ManageProjectsTest extends TestCase
 
         $this->get('/projects/create')->assertStatus(200);
 
-        // we will follow the redirect 
+        // we will follow the redirect
         $this->followingRedirects()
             ->post('/projects', $attributes = factory(Project::class)->raw())
             ->assertSee($attributes['title'])
@@ -70,7 +70,7 @@ class ManageProjectsTest extends TestCase
 
         $this->delete($project->path())
             ->assertStatus(403);
-        
+
         $project->invite($user);
 
         $this->delete($project->path())
