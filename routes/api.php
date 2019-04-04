@@ -17,10 +17,9 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-
-Route::get('stats', function(){
+Route::get('stats', function () {
     return [
         'series' => 200,
-        'lessons' => 1300
+        'lessons' => 1300,
     ];
 });
