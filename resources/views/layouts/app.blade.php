@@ -21,7 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="bg-grey-lighter">
+<body class="bg-page">
     <div id="app">
         <nav class="bg-white section">
             <div class="container mx-auto">
