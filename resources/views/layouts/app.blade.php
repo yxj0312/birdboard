@@ -21,7 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body class="theme-dark bg-page">
+<body class="theme-light bg-page">
     <div id="app">
         <nav class="bg-header section">
             <div class="container mx-auto">
@@ -42,18 +42,16 @@
 
                     <div>
                         <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto list-reset">
+                        <div class="flex items-center ml-auto">
                             <!-- Authentication Links -->
                             @guest
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                            <li class="nav-item">
+                                @if (Route::has('register'))
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                            @endif @else
-                            <li class="nav-item dropdown">
+                                @endif
+                            @else
+                                <theme-switcher></theme-switcher>
+
                                 <a 
                                     class="flex items-center text-default no-underline text-sm"
                                     href="#" role="button" 
@@ -67,9 +65,8 @@
                                              src="https://www.gravatar.com/avatar/{{ md5(auth()->user()->email) }}?s=200">
                                     Xiajun
                                 </a>
-                            </li>
                             @endguest
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </div>
