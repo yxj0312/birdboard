@@ -39,10 +39,10 @@
                         <input 
                             type="text" 
                             class="border border-muted-light mb-2 p-2 text-xs block w-full rounded" 
-                            placeholder="Task 1" 
+                            :placeholder="'Task ' + (index + 1)" 
                             v-for="(task, index) in form.tasks" 
                             :key="index"
-                            v-model="task.value"
+                            v-model="task.body"
                         >
                     </div>
 
@@ -60,7 +60,7 @@
             </div>
 
             <footer class="flex justify-end">
-                <button class="button is-outlined mr-4" @click.prevent="$modal.hide('new-project')">Cancel</button>
+                <button type="button" class="button is-outlined mr-4" @click.prevent="$modal.hide('new-project')">Cancel</button>
                 <button class="button">Create Project</button>
             </footer>
         </form>
@@ -93,7 +93,7 @@
 
         methods: {
             addTask() {
-                this.form.tasks.push({ value:''})
+                this.form.tasks.push({ body:''})
             },
 
             // submit() {
