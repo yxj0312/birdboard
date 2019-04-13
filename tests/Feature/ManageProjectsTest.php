@@ -40,7 +40,7 @@ class ManageProjectsTest extends TestCase
     }
 
     /** @test */
-    function tasks_can_be_included_as_part_a_new_project_creation()
+    public function tasks_can_be_included_as_part_a_new_project_creation()
     {
         $this->signIn();
 
@@ -48,11 +48,11 @@ class ManageProjectsTest extends TestCase
 
         $attributes['tasks'] = [
             ['body' => 'Task 1'],
-            ['body' => 'Task 2']
+            ['body' => 'Task 2'],
         ];
 
         $this->post('/projects', $attributes);
-        
+
         $this->assertCount(2, Project::first()->tasks);
     }
 
