@@ -68,6 +68,8 @@
 </template>
 
 <script>
+    import BirdboardForm from "./BirdboardForm";
+
     export default {
         props: [],
 
@@ -107,6 +109,7 @@
             // }
 
             async submit() {
+                form.submit('/projects');
                 try {
                     location = (await axios.post('/projects', this.form)).data.message;
                 } catch (error) {
