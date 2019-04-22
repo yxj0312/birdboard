@@ -77,13 +77,13 @@
 
         data() {
             return {
-                form: {
+                form: new BirdboardForm({
                     title: '',
                     description: '',
                     tasks: [
                         { body: ''},
                     ]
-                },
+                }),
 
                 errors: {}
             }
@@ -109,7 +109,7 @@
             // }
 
             async submit() {
-                form.submit('/projects');
+                this.form.submit('/projects');
                 try {
                     location = (await axios.post('/projects', this.form)).data.message;
                 } catch (error) {
