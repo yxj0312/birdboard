@@ -1865,8 +1865,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         tasks: [{
           body: ''
         }]
-      }),
-      errors: {}
+      })
     };
   },
   computed: {},
@@ -1893,27 +1892,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                this.form.submit('/projects');
-                _context.prev = 1;
-                _context.next = 4;
-                return axios.post('/projects', this.form);
+                this.form.submit('/projects').then(function (response) {
+                  return location = response.data.message;
+                }); // try {
+                //     location = (await axios.post('/projects', this.form)).data.message;
+                // } catch (error) {
+                //     this.errors = error.response.data.errors;
+                // }
 
-              case 4:
-                location = _context.sent.data.message;
-                _context.next = 10;
-                break;
-
-              case 7:
-                _context.prev = 7;
-                _context.t0 = _context["catch"](1);
-                this.errors = _context.t0.response.data.errors;
-
-              case 10:
+              case 1:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[1, 7]]);
+        }, _callee, this);
       }));
 
       function submit() {
@@ -49284,7 +49276,7 @@ function () {
 
     this.originalData = JSON.parse(JSON.stringify(data));
     Object.assign(this, data);
-    this.erros = {};
+    this.errors = {};
   }
 
   _createClass(BirdboardForm, [{
@@ -49301,7 +49293,12 @@ function () {
   }, {
     key: "submit",
     value: function submit(endpoint) {
-      axios.post(endpoint, this.data());
+      return axios.post(endpoint, this.data()).catch(this.onFail.bind(this));
+    }
+  }, {
+    key: "onFail",
+    value: function onFail(error) {
+      this.errors = error.response.data.errors;
     }
   }]);
 
