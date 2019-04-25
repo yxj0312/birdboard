@@ -1853,6 +1853,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: [],
@@ -1892,6 +1893,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
+                if (!this.form.tasks[0].body) {
+                  delete this.form.originalData.tasks;
+                }
+
                 this.form.submit('/projects').then(function (response) {
                   return location = response.data.message;
                 }); // try {
@@ -1900,7 +1905,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 //     this.errors = error.response.data.errors;
                 // }
 
-              case 1:
+              case 2:
               case "end":
                 return _context.stop();
             }
@@ -37654,7 +37659,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "border p-2 text-xs block w-full rounded",
-                  class: _vm.errors.title
+                  class: _vm.form.errors.title
                     ? "border-error"
                     : "border-muted-light",
                   attrs: { type: "text", id: "title" },
@@ -37669,10 +37674,12 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm.errors.title
+                _vm.form.errors.title
                   ? _c("span", {
                       staticClass: "text-xs italic text-error",
-                      domProps: { textContent: _vm._s(_vm.errors.title[0]) }
+                      domProps: {
+                        textContent: _vm._s(_vm.form.errors.title[0])
+                      }
                     })
                   : _vm._e()
               ]),
@@ -37698,6 +37705,9 @@ var render = function() {
                   ],
                   staticClass:
                     "border border-muted-light p-2 text-xs block w-full rounded",
+                  class: _vm.form.errors.description
+                    ? "border-error"
+                    : "border-muted-light",
                   attrs: { id: "description", rows: "7" },
                   domProps: { value: _vm.form.description },
                   on: {
@@ -37710,11 +37720,11 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
-                _vm.errors.description
+                _vm.form.errors.description
                   ? _c("span", {
                       staticClass: "text-xs italic text-error",
                       domProps: {
-                        textContent: _vm._s(_vm.errors.description[0])
+                        textContent: _vm._s(_vm.form.errors.description[0])
                       }
                     })
                   : _vm._e()
@@ -49277,28 +49287,65 @@ function () {
     this.originalData = JSON.parse(JSON.stringify(data));
     Object.assign(this, data);
     this.errors = {};
+    this.submitted = false;
   }
 
   _createClass(BirdboardForm, [{
     key: "data",
     value: function data() {
-      var data = {};
+      var _this = this;
 
-      for (var attribute in this.originalData) {
-        data[attribute] = this[attribute];
-      }
+      return Object.keys(this.originalData).reduce(function (data, attribute) {
+        data[attribute] = _this[attribute];
+        return data;
+      }, {});
+    } // data() {
+    //     let data =  {};
+    //     for (let attribute in this.originalData) {
+    //         data[attribute] = this[attribute];
+    //     }
+    //     return data;
+    // }
 
-      return data;
+  }, {
+    key: "post",
+    value: function post(endpoint) {
+      return this.submit(endpoint);
+    }
+  }, {
+    key: "patch",
+    value: function patch(endpoint) {
+      return this.submit(endpoint, 'patch');
+    }
+  }, {
+    key: "delete",
+    value: function _delete(endpoint) {
+      return this.submit(endpoint, 'delete');
     }
   }, {
     key: "submit",
     value: function submit(endpoint) {
-      return axios.post(endpoint, this.data()).catch(this.onFail.bind(this));
+      var requestType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'post';
+      return axios[requestType](endpoint, this.data()).catch(this.onFail.bind(this)).then(this.onSuccess.bind(this));
+    }
+  }, {
+    key: "onSuccess",
+    value: function onSuccess(response) {
+      this.submitted = true;
+      this.errors = {};
+      return response;
     }
   }, {
     key: "onFail",
     value: function onFail(error) {
       this.errors = error.response.data.errors;
+      this.submitted = false;
+      throw error;
+    }
+  }, {
+    key: "reset",
+    value: function reset() {
+      Object.assign(this, this.originalData);
     }
   }]);
 
