@@ -24,7 +24,7 @@ Route::get('stats', function () {
     ];
 });
 
-Route::get('achievements', function(){
+Route::get('achievements', function () {
     $user = User::whereUsername('JeffreyWay')->first();
 
     return $user->achievements;
