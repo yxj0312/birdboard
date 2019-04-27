@@ -23,3 +23,9 @@ Route::get('stats', function () {
         'lessons' => 1300,
     ];
 });
+
+Route::get('achievements', function(){
+    $user = User::whereUsername('JeffreyWay')->first();
+
+    return $user->achievements;
+});
