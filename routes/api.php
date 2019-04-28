@@ -25,8 +25,7 @@ Route::get('stats', function () {
 });
 
 Route::get('achievements', function () {
-
-    return [['name' => 1], ['name' => 2] ];
+    return [['name' => 1], ['name' => 2]];
     // $user = request()->user()->first()->achievements;
 
     // return $user->achievements;
