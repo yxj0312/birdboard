@@ -52,19 +52,26 @@
                             @else
                                 <theme-switcher></theme-switcher>
 
-                                <a 
-                                    class="flex items-center text-default no-underline text-sm"
-                                    href="#" role="button" 
-                                    data-toggle="dropdown" 
-                                    aria-haspopup="true"
-                                    aria-expanded="false" 
-                                    v-pre
-                                >
-                                        <img width="35"
-                                             class="rounded-full mr-3"
-                                             src="https://www.gravatar.com/avatar/{{ md5(auth()->user()->email) }}?s=200">
-                                    Xiajun
-                                </a>
+                                <dropdown>
+                                    {{-- <template v-slot:trigger="props"> --}}
+                                    <template v-slot:trigger>
+                                        <button 
+                                            class="flex items-center text-default no-underline text-sm"
+                                            v-pre
+                                        >
+                                                <img width="35"
+                                                    class="rounded-full mr-3"
+                                                    src="https://www.gravatar.com/avatar/{{ md5(auth()->user()->email) }}?s=200">
+                                            {{ auth()->user()->name }}
+                                        </button>
+                                    </template>
+
+                                    <a href="http://">Item 1</a>
+                                    <a href="http://">Item 2</a>
+                                    <a href="http://">Item 3</a>
+                                </dropdown>
+
+                                
                             @endguest
                         </div>
                     </div>

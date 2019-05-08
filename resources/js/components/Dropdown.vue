@@ -2,10 +2,16 @@
     <div class="dropdown">
         <!-- trigger -->
         <!-- Each of this will be unique of the dropdown, so we use slot here -->
-        <slot name="trigger"></slot>
+        <!-- We can't add a click on slot, so we add a div -->
+        <div @click="isOpen = !isOpen">
+            <slot name="trigger"></slot>
+        </div>
+        
 
         <!-- menu links -->
-        <div class="dropdown-menu">
+        <div v-show="isOpen" 
+             class="dropdown-menu"
+        >
             <slot></slot>
         </div>
     </div>
