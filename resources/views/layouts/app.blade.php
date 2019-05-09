@@ -52,11 +52,11 @@
                             @else
                                 <theme-switcher></theme-switcher>
 
-                                <dropdown>
+                                <dropdown align="right" width="200px">
                                     {{-- <template v-slot:trigger="props"> --}}
                                     <template v-slot:trigger>
                                         <button 
-                                            class="flex items-center text-default no-underline text-sm"
+                                            class="flex items-center text-default no-underline text-sm focus:outline-none"
                                             v-pre
                                         >
                                                 <img width="35"
@@ -66,9 +66,10 @@
                                         </button>
                                     </template>
 
-                                    <a href="http://">Item 1</a>
-                                    <a href="http://">Item 2</a>
-                                    <a href="http://">Item 3</a>
+                                    <button type="submit" class="dropdown-menu-link w-full text-left">Logout</button>
+                                    <a class="dropdown-menu-link w-full text-left" href="http://">Item 1</a>
+                                    <a class="dropdown-menu-link w-full text-left" href="http://">Item 2</a>
+                                    <a class="dropdown-menu-link w-full text-left" href="http://">Item 3</a>
                                 </dropdown>
 
                                 

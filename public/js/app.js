@@ -1794,8 +1794,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: [],
+  props: {
+    width: {
+      "default": 'auto'
+    },
+    align: {
+      "default": 'left'
+    }
+  },
   components: {},
   data: function data() {
     return {
@@ -3273,12 +3284,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "dropdown" }, [
+  return _c("div", { staticClass: "dropdown relative" }, [
     _c(
       "div",
       {
+        staticClass: "dropdown-toggle",
         on: {
           click: function($event) {
+            $event.preventDefault()
             _vm.isOpen = !_vm.isOpen
           }
         }
@@ -3298,7 +3311,9 @@ var render = function() {
             expression: "isOpen"
           }
         ],
-        staticClass: "dropdown-menu"
+        staticClass: "dropdown-menu absolute bg-card py-2 rounded shadow mt-2",
+        class: _vm.align === "left" ? "pin-l" : "pin-r",
+        style: { width: _vm.width }
       },
       [_vm._t("default")],
       2
