@@ -4,6 +4,8 @@
         <!-- Each of this will be unique of the dropdown, so we use slot here -->
         <!-- We can't add a click on slot, so we add a div -->
         <div class="dropdown-toggle"
+            aria-haspopup="true"
+            :aria-expanded="isOpen"
             @click.prevent="isOpen = !isOpen"
         >
             <slot name="trigger"></slot>
