@@ -66,10 +66,16 @@
                                         </button>
                                     </template>
 
-                                    <button type="submit" class="dropdown-menu-link w-full text-left">Logout</button>
-                                    <a class="dropdown-menu-link w-full text-left" href="http://">Item 1</a>
-                                    <a class="dropdown-menu-link w-full text-left" href="http://">Item 2</a>
-                                    <a class="dropdown-menu-link w-full text-left" href="http://">Item 3</a>
+                                    <template v-slot:default>
+                                        <form id="logout-form" method="POST" action="/logout">
+                                            @csrf
+                                            
+                                            <button type="submit" class="dropdown-menu-link w-full text-left">Logout</button>
+                                        </form>
+                                        {{-- <a class="dropdown-menu-link w-full text-left" href="http://">Item 1</a>
+                                        <a class="dropdown-menu-link w-full text-left" href="http://">Item 2</a>
+                                        <a class="dropdown-menu-link w-full text-left" href="http://">Item 3</a> --}}
+                                    </template>
                                 </dropdown>
 
                                 
