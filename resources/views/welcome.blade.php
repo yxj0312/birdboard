@@ -49,7 +49,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #47cdff;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -80,8 +80,8 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="title">
+                    Birdboard
                 </div>
 
                 <div class="links">
@@ -91,6 +91,7 @@
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://laracasts.com/series/build-a-laravel-app-with-tdd">Watch the Laracasts</a>
                 </div>
             </div>
         </div>
