@@ -15,7 +15,7 @@ class AccessTokenController extends Controller
     public function update()
     {
         request()->user()->forceFill([
-            'api_token' => $token = str_random(60)
+            'api_token' => $token = str_random(60),
             // 'api_token' => hash('sha256', str_random(60));
         ])->save();
 
@@ -23,7 +23,6 @@ class AccessTokenController extends Controller
         // flash()->overlay('Success', 'We have generated a new token for you');
 
         return back()
-            ->with('message', 'We have generated a new token for you. You will only see this once, so please store it somewhere safe: '. $token);
+            ->with('message', 'We have generated a new token for you. You will only see this once, so please store it somewhere safe: '.$token);
     }
-    
 }
