@@ -25,4 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
+Route::get('/settings/access', 'AccessTokenController@show');
+Route::patch('/settings/access', 'AccessTokenController@update');
+
 Auth::routes();
