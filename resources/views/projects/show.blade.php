@@ -74,6 +74,19 @@
                         <button type="submit" class="button">Save</button>
                     </form>
 
+                    <dropdown align="right" width="100%">
+                        {{-- <template v-slot:trigger="props"> --}}
+                        <template v-slot:trigger>
+                            <a href="">Click Me</a>
+                        </template>
+
+                        <template v-slot:default>
+                            <a class="dropdown-menu-link w-full text-left" href="http://">Item 1</a>
+                            <a class="dropdown-menu-link w-full text-left" href="http://">Item 2</a>
+                            <a class="dropdown-menu-link w-full text-left" href="http://">Item 3</a>
+                        </template>
+                    </dropdown>
+
                     @include ('errors')
                 </div>
             </div>
