@@ -9,10 +9,16 @@ class Project extends Model
     use RecordsActivity;
 
     protected $guarded = [];
+    protected $appends = ['edited'];
 
     public function path()
     {
         return "/projects/{$this->id}";
+    }
+
+    public function getEditedAttribute()
+    {
+        return $this->created_at != $this->updated_at;
     }
 
     public function owner()

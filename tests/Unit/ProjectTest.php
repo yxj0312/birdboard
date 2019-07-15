@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Carbon\Carbon;
 
 class ProjectTest extends TestCase
 {
@@ -45,5 +46,19 @@ class ProjectTest extends TestCase
         $project->invite($user = factory(User::class)->create());
 
         $this->assertTrue($project->members->contains($user));
+    }
+
+    /** @test */
+    function it_knows_if_it_has_been_edited()
+    {
+        $project = factory('App\Project')->create();
+        
+        $this->assertFalse($project->edited);
+
+        Carbon::setTestNow('tomorrow');
+
+        $project->update(['title' => 'Changed']);
+
+        $this->assertTrue($project->fresh()->edited);
     }
 }

@@ -5,7 +5,10 @@
         <div class="flex justify-between items-end w-full">
             <p class="text-muted font-light">
                 <a href="/projects" class="text-muted no-underline hover:underline">My Projects</a>
-                / {{ $project->title }}
+                / {{ $project->title }} 
+                @if ($project->edited)
+                    <span class="text-xs">(edited)</span>    
+                @endif
             </p>
 
             <div class="flex items-center">
