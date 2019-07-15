@@ -3,9 +3,9 @@
 namespace Tests\Unit;
 
 use App\User;
+use Carbon\Carbon;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Carbon\Carbon;
 
 class ProjectTest extends TestCase
 {
@@ -49,10 +49,10 @@ class ProjectTest extends TestCase
     }
 
     /** @test */
-    function it_knows_if_it_has_been_edited()
+    public function it_knows_if_it_has_been_edited()
     {
         $project = factory('App\Project')->create();
-        
+
         $this->assertFalse($project->edited);
 
         Carbon::setTestNow('tomorrow');
