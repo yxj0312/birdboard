@@ -29,7 +29,6 @@ Route::get('/settings/access', 'AccessTokenController@show');
 Route::patch('/settings/access', 'AccessTokenController@update');
 
 Auth::routes();
- 
 
 // Route::get('/job', function(){
 //      dispatch(function (){
@@ -38,10 +37,10 @@ Auth::routes();
 
 //      return 'Finished';
 // });
-Route::get('/job', function(){
-     dispatch(function (){
-         logger('I have to tell you about the furture');
-     })->delay(now()->addMinutes(2));
+Route::get('/job', function () {
+    dispatch(function () {
+        logger('I have to tell you about the furture');
+    })->delay(now()->addMinutes(2));
 
-     return 'Finished';
+    return 'Finished';
 });
