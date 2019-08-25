@@ -49,7 +49,7 @@ Auth::routes();
 // });
 
 Route::get('/job', function () {
-    $user =  App\User::first();
+    $user = App\User::first();
     dispatch(new ReconcileAccount($user));
 
     return 'Finished';

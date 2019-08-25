@@ -4,10 +4,10 @@ namespace App\Jobs;
 
 use App\User;
 use Illuminate\Bus\Queueable;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Bus\Dispatchable;
 
 class ReconcileAccount implements ShouldQueue
@@ -33,8 +33,8 @@ class ReconcileAccount implements ShouldQueue
      * @return void
      */
     public function handle(Filesystem $file)
-    {        
-        $file->put(public_path('testing.txt'), 'Reconciling: '. $this->user->name); 
-        logger('Reconciling the user: ' . $this->user->name);
+    {
+        $file->put(public_path('testing.txt'), 'Reconciling: '.$this->user->name);
+        logger('Reconciling the user: '.$this->user->name);
     }
 }
