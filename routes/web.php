@@ -10,6 +10,8 @@
 |
 */
 
+use App\Jobs\ReconcileAccount;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -37,10 +39,18 @@ Auth::routes();
 
 //      return 'Finished';
 // });
+
+// Route::get('/job', function () {
+//     dispatch(function () {
+//         logger('I have to tell you about the furture');
+//     })->delay(now()->addMinutes(2));
+
+//     return 'Finished';
+// });
+
 Route::get('/job', function () {
-    dispatch(function () {
-        logger('I have to tell you about the furture');
-    })->delay(now()->addMinutes(2));
+    $user =  App\User::first();
+    dispatch(new ReconcileAccount($user));
 
     return 'Finished';
 });
