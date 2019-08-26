@@ -50,7 +50,11 @@ Auth::routes();
 
 Route::get('/job', function () {
     $user =  App\User::first();
-    dispatch(new ReconcileAccount($user));
+
+    // dispatch(new ReconcileAccount($user));
+
+    // Identific with above
+    ReconcileAccount::dispatch($user);
 
     return 'Finished';
 });
