@@ -34,8 +34,8 @@ class ReconcileAccount implements ShouldQueue
      */
     public function handle(Filesystem $file)
     {
-        // queue:work --tries=3
-        throw new \Exception('Whoops!');
+        // queue:work --tries=3 /queue:retry/queue:failed-table
+        // throw new \Exception('Whoops!');
 
         // $file->put(public_path('testing.txt'), 'Reconciling: '.$this->user->name);
         logger('Reconciling the user: '.$this->user->name);
