@@ -36,6 +36,7 @@ class ReconcileAccount implements ShouldQueue
     {
         // queue:work --tries=3 /queue:retry/queue:failed-table
         // throw new \Exception('Whoops!');
+        // Play wow classic, finishe watching this ep video, although can't be used by windows 10
 
         // $file->put(public_path('testing.txt'), 'Reconciling: '.$this->user->name);
         logger('Reconciling the user: '.$this->user->name);
