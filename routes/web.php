@@ -54,7 +54,8 @@ Route::get('/job', function () {
     // dispatch(new ReconcileAccount($user));
 
     // Identific with above
-    ReconcileAccount::dispatch($user);
+    // Then only work after run php artisan queue:work --queue="high"
+    ReconcileAccount::dispatch($user)->onQueue('high');
 
     return 'Finished';
 });
