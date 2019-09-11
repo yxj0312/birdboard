@@ -25,8 +25,8 @@ class ReconcileAccount2
      *
      * @return void
      */
-    public function handle()
+    public function handle($string, $next)
     {
-        //
+        return $next('Something else');
     }
 }
