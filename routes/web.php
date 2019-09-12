@@ -63,8 +63,7 @@ Route::get('/job', function () {
     return 'Finished';
 });
 
-
-Route::get('/pipeline', function(){
+Route::get('/pipeline', function () {
     $pipeline = app(Pipeline::class);
 
     $pipeline->send('hello freaking world')
@@ -79,13 +78,13 @@ Route::get('/pipeline', function(){
                     $string = str_ireplace('freaking', '', $string);
 
                     return $next($string);
-                }, 
+                },
 
-                ReconcileAccount2::class
+                ReconcileAccount2::class,
             ])
-            ->then(function ($string){
+            ->then(function ($string) {
                 dump($string);
             });
-    
+
     return 'Done';
 });
