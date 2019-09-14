@@ -12,6 +12,7 @@
 
 use App\Jobs\ReconcileAccount;
 use App\Jobs\ReconcileAccount2;
+use Illuminate\Bus\Dispatcher;
 use Illuminate\Routing\Pipeline;
 
 Route::get('/', function () {
@@ -59,6 +60,12 @@ Route::get('/job', function () {
     // Then only work after run php artisan queue:work --queue="high"
     // ReconcileAccount::dispatch($user)->onQueue('high');
     ReconcileAccount::dispatch($user);
+
+
+    // This is what is above doing
+    // $job = new ReconcileAccount($user);
+
+    // resolve(Dispatcher::class)->dispatch($job);
 
     return 'Finished';
 });

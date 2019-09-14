@@ -37,7 +37,12 @@ public function dispatchNow($command, $handler = null)
         };
     }
 
+    // What pipes do we have?
     return $this->pipeline->send($command)->through($this->pipes)->then($callback);
 }
 ```
+
+-> What pipes do we have?
+
+
 
