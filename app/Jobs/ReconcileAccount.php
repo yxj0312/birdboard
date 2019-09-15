@@ -41,4 +41,9 @@ class ReconcileAccount implements ShouldQueue
         // $file->put(public_path('testing.txt'), 'Reconciling: '.$this->user->name);
         logger('Reconciling the user: '.$this->user->name);
     }
+
+    public function queue()
+    {
+        
+    }
 }
