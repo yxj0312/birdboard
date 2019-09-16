@@ -55,3 +55,7 @@ protected function pushCommandToQueue($queue, $command)
     return $queue->push($command);
 }
 ```
+
+What happens after run php artisan queue:work?
+
+vendor\laravel\horizon\src\Console\WorkCommand.php
