@@ -44,6 +44,5 @@ class ReconcileAccount implements ShouldQueue
 
     public function queue()
     {
-        
     }
 }
