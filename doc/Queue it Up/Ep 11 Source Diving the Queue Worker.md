@@ -58,4 +58,32 @@ protected function pushCommandToQueue($queue, $command)
 
 What happens after run php artisan queue:work?
 
-vendor\laravel\horizon\src\Console\WorkCommand.php
+vendor\laravel\framework\src\Illuminate\Queue\Console\WorkCommand.php
+->getQueue()
+->runWorker()
+
+How we run the worker?
+
+```php
+    /**
+     * Run the worker instance.
+     *
+     * @param  string  $connection: data base connection 
+     * @param  string  $queue: the default queue
+     * @return array
+     */
+    protected function runWorker($connection, $queue)
+    {
+        $this->worker->setCache($this->laravel['cache']->driver());
+
+        // delicate to a worker colleberator, and in this case, we use a daemon
+        return $this->worker->{$this->option('once') ? 'runNextJob' : 'daemon'}(
+            // passing database connection/queue/and any options
+            $connection, $queue, $this->gatherWorkerOptions()
+        );
+    }
+```
+
+What is this work colleberator?
+
+
