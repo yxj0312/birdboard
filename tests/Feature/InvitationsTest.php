@@ -3,9 +3,9 @@
 namespace Tests\Feature;
 
 use App\User;
-use Tests\TestCase;
 use Facades\Tests\Setup\ProjectFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class InvitationsTest extends TestCase
 {
