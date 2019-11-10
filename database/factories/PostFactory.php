@@ -8,6 +8,6 @@ $factory->define(Model::class, function (Faker $faker) {
             return factory(App\User::class)->create()->id;
         },
         'title' => $faker->sentence,
-        'body'  => $faker->paragraph
+        'body'  => $faker->paragraph,
     ];
 });
