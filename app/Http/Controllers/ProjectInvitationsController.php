@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Project;
 use App\Http\Requests\ProjectInvitationRequest;
+use App\Project;
+use App\User;
 
 class ProjectInvitationsController extends Controller
 {

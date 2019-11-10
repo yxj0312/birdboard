@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use App\Project;
-use Tests\TestCase;
 use Facades\Tests\Setup\ProjectFactory;
-// use Tests\Setup\ProjectFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+// use Tests\Setup\ProjectFactory;
+use Tests\TestCase;
 
 class ProjectTasksTest extends TestCase
 {

@@ -3,10 +3,10 @@
 namespace Tests\Unit;
 
 use App\User;
-use Tests\TestCase;
 use Facades\Tests\Setup\ProjectFactory;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class UserTest extends TestCase
 {

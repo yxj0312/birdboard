@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use App\Task;
 use App\Project;
-use Tests\TestCase;
+use App\Task;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class TasksTest extends TestCase
 {

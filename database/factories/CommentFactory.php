@@ -10,6 +10,6 @@ $factory->define(Model::class, function (Faker $faker) {
         'post_id' => function () {
             return factory(App\Post::class)->create()->id;
         },
-        'body' => $faker->paragraph
+        'body' => $faker->paragraph,
     ];
 });
