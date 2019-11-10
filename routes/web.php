@@ -11,8 +11,8 @@
 */
 
 use App\Jobs\ReconcileAccount;
-use Illuminate\Bus\Dispatcher;
 use App\Jobs\ReconcileAccount2;
+use Illuminate\Bus\Dispatcher;
 use Illuminate\Routing\Pipeline;
 
 Route::get('/', function () {

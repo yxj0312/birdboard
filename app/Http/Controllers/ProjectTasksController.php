@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
 use App\Project;
+use App\Task;
 
 class ProjectTasksController extends Controller
 {
