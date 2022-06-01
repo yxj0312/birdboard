@@ -29,7 +29,7 @@ trait RecordsActivity
     /**
      * Record activity for a project.
      *
-     * @param string $description
+     * @param  string  $description
      */
     public function recordActivity($description)
     {
